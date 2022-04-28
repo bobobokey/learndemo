@@ -13,8 +13,7 @@
   ~ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
   ~ License for the specific language governing permissions and limitations
   ~ under the License.
-  -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <parent>
@@ -92,7 +91,7 @@
     <dependency>
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java</artifactId>
-      <version>2.5.0</version>
+      <version>3.16.1</version>
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
@@ -105,7 +104,7 @@
     <dependency>
       <groupId>org.bouncycastle</groupId>
       <artifactId>bcpkix-jdk15on</artifactId>
-      <version>1.50</version>
+      <version>1.67</version>
       <scope>compile</scope>
       <optional>true</optional>
     </dependency>
@@ -217,7 +216,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.13.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -310,7 +309,7 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <ignore />
+                    <ignore/>
                   </action>
                 </pluginExecution>
                 <pluginExecution>
@@ -323,7 +322,7 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <ignore />
+                    <ignore/>
                   </action>
                 </pluginExecution>
               </pluginExecutions>
@@ -525,25 +524,25 @@
             </goals>
             <configuration>
               <target>
-                <taskdef resource="net/sf/antcontrib/antlib.xml" />
+                <taskdef resource="net/sf/antcontrib/antlib.xml"/>
                 <exec executable="git" outputproperty="gitOutput" resultproperty="gitExitCode" failonerror="false" failifexecutionfails="false">
-                  <arg value="log" />
-                  <arg value="-1" />
-                  <arg value="--format=format:%h" />
+                  <arg value="log"/>
+                  <arg value="-1"/>
+                  <arg value="--format=format:%h"/>
                 </exec>
                 <if>
-                  <equals arg2="0" arg1="${gitExitCode}" />
+                  <equals arg2="0" arg1="${gitExitCode}"/>
                   <then>
-                    <property name="buildNumber" value="${gitOutput}" />
+                    <property name="buildNumber" value="${gitOutput}"/>
                   </then>
                   <else>
-                    <property name="buildNumber" value="unknown" />
+                    <property name="buildNumber" value="unknown"/>
                   </else>
                 </if>
                 <echo>Build number: ${buildNumber}</echo>
-                <mkdir dir="${project.build.directory}" />
-                <echo message="${project.version}" file="${project.build.directory}/version.txt" />
-                <echo message="// DO NOT MODIFY - WILL BE OVERWRITTEN DURING THE BUILD PROCESS${line.separator}package org.jboss.netty.util;${line.separator}/**${line.separator} * Provides the version information of Netty.${line.separator} * @apiviz.landmark${line.separator} */${line.separator}@SuppressWarnings(&quot;all&quot;)${line.separator}public final class Version {${line.separator} /** The version identifier. */${line.separator} public static final String ID = &quot;${project.version}-${buildNumber}&quot;;${line.separator} /** Prints out the version identifier to stdout. */${line.separator} public static void main(String[] args) { System.out.println(ID); }${line.separator} private Version() { }${line.separator}}${line.separator}" file="${basedir}/src/main/java/org/jboss/netty/util/Version.java" />
+                <mkdir dir="${project.build.directory}"/>
+                <echo message="${project.version}" file="${project.build.directory}/version.txt"/>
+                <echo message="// DO NOT MODIFY - WILL BE OVERWRITTEN DURING THE BUILD PROCESS${line.separator}package org.jboss.netty.util;${line.separator}/**${line.separator} * Provides the version information of Netty.${line.separator} * @apiviz.landmark${line.separator} */${line.separator}@SuppressWarnings(&quot;all&quot;)${line.separator}public final class Version {${line.separator} /** The version identifier. */${line.separator} public static final String ID = &quot;${project.version}-${buildNumber}&quot;;${line.separator} /** Prints out the version identifier to stdout. */${line.separator} public static void main(String[] args) { System.out.println(ID); }${line.separator} private Version() { }${line.separator}}${line.separator}" file="${basedir}/src/main/java/org/jboss/netty/util/Version.java"/>
               </target>
             </configuration>
           </execution>
@@ -555,39 +554,39 @@
             </goals>
             <configuration>
               <target>
-                <taskdef resource="net/sf/antcontrib/antlib.xml" />
+                <taskdef resource="net/sf/antcontrib/antlib.xml"/>
                 <if>
                   <or>
-                    <equals arg2="jar" arg1="${project.packaging}" />
-                    <equals arg2="bundle" arg1="${project.packaging}" />
+                    <equals arg2="jar" arg1="${project.packaging}"/>
+                    <equals arg2="bundle" arg1="${project.packaging}"/>
                   </or>
                   <then>
-                    <move file="${project.build.directory}/${project.build.finalName}.jar" tofile="${project.build.directory}/${project.build.finalName}.orig.jar" />
+                    <move file="${project.build.directory}/${project.build.finalName}.jar" tofile="${project.build.directory}/${project.build.finalName}.orig.jar"/>
                     <zip destfile="${project.build.directory}/${project.build.finalName}.jar">
                       <zipfileset filemode="644" src="${project.build.directory}/${project.build.finalName}.orig.jar" dirmode="755">
-                        <include name="META-INF/MANIFEST.MF" />
+                        <include name="META-INF/MANIFEST.MF"/>
                       </zipfileset>
                       <zipfileset filemode="644" src="${project.build.directory}/${project.build.finalName}.orig.jar" dirmode="755">
-                        <exclude name="META-INF/MANIFEST.MF" />
-                        <exclude name="*/*/*/example/**" />
+                        <exclude name="META-INF/MANIFEST.MF"/>
+                        <exclude name="*/*/*/example/**"/>
                       </zipfileset>
                     </zip>
-                    <delete file="${project.build.directory}/${project.build.finalName}.orig.jar" />
-                    <checksum file="${project.build.directory}/${project.build.finalName}.jar" algorithm="md5" forceoverwrite="yes" />
-                    <checksum file="${project.build.directory}/${project.build.finalName}.jar" algorithm="sha1" forceoverwrite="yes" />
-                    <move file="${project.build.directory}/${project.build.finalName}-sources.jar" tofile="${project.build.directory}/${project.build.finalName}-sources.orig.jar" />
+                    <delete file="${project.build.directory}/${project.build.finalName}.orig.jar"/>
+                    <checksum file="${project.build.directory}/${project.build.finalName}.jar" algorithm="md5" forceoverwrite="yes"/>
+                    <checksum file="${project.build.directory}/${project.build.finalName}.jar" algorithm="sha1" forceoverwrite="yes"/>
+                    <move file="${project.build.directory}/${project.build.finalName}-sources.jar" tofile="${project.build.directory}/${project.build.finalName}-sources.orig.jar"/>
                     <zip destfile="${project.build.directory}/${project.build.finalName}-sources.jar">
                       <zipfileset filemode="644" src="${project.build.directory}/${project.build.finalName}-sources.orig.jar" dirmode="755">
-                        <include name="META-INF/MANIFEST.MF" />
+                        <include name="META-INF/MANIFEST.MF"/>
                       </zipfileset>
                       <zipfileset filemode="644" src="${project.build.directory}/${project.build.finalName}-sources.orig.jar" dirmode="755">
-                        <exclude name="META-INF/MANIFEST.MF" />
-                        <exclude name="*/*/*/example/**" />
+                        <exclude name="META-INF/MANIFEST.MF"/>
+                        <exclude name="*/*/*/example/**"/>
                       </zipfileset>
                     </zip>
-                    <delete file="${project.build.directory}/${project.build.finalName}-sources.orig.jar" />
-                    <checksum file="${project.build.directory}/${project.build.finalName}-sources.jar" algorithm="md5" forceoverwrite="yes" />
-                    <checksum file="${project.build.directory}/${project.build.finalName}-sources.jar" algorithm="sha1" forceoverwrite="yes" />
+                    <delete file="${project.build.directory}/${project.build.finalName}-sources.orig.jar"/>
+                    <checksum file="${project.build.directory}/${project.build.finalName}-sources.jar" algorithm="md5" forceoverwrite="yes"/>
+                    <checksum file="${project.build.directory}/${project.build.finalName}-sources.jar" algorithm="sha1" forceoverwrite="yes"/>
                   </then>
                 </if>
               </target>
@@ -751,4 +750,3 @@
     </plugins>
   </build>
 </project>
-
