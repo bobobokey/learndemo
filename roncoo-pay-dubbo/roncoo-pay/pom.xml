@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- ==================================================================== -->
@@ -41,12 +40,12 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<spring.version>3.2.17.RELEASE</spring.version>
+		<spring.version>5.2.19.RELEASE</spring.version>
 		<mybatis.version>3.4.0</mybatis.version>
 		<mybatis-spring.version>1.3.0</mybatis-spring.version>
 		<druid.version>1.0.20</druid.version>
-		<mysql.version>5.1.38</mysql.version>
-		<fastjson.version>1.2.11</fastjson.version>
+		<mysql.version>8.0.28</mysql.version>
+		<fastjson.version>1.2.69</fastjson.version>
 		<shiro.version>1.2.5</shiro.version>
 		<slf4j_version>1.7.21</slf4j_version>
 		<log4j_version>1.2.17</log4j_version>
@@ -56,9 +55,9 @@
 		<jstl.version>1.2</jstl.version>
 		<javaee-api.version>7.0</javaee-api.version>
 		<commons-lang.version>2.6</commons-lang.version>
-		<commons-io.version>2.5</commons-io.version>
+		<commons-io.version>2.9.0</commons-io.version>
 		<jdom.version>2.0.2</jdom.version>
-		<junit.version>4.11</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<tcc.version>1.1.5</tcc.version>
 	</properties>
 
@@ -315,7 +314,7 @@
 			<dependency>
 				<groupId>org.apache.zookeeper</groupId>
 				<artifactId>zookeeper</artifactId>
-				<version>3.4.6</version>
+				<version>3.4.14</version>
 				<scope>compile</scope>
 			</dependency>
 
@@ -434,10 +433,4 @@
 		</developer>
 	</developers>
 
-</project>
-<!-- ==================================================================== -->
-<!-- 龙果学院（ http://www.roncoo.com ）超级教程系列 -->
-<!-- 《微服务架构的分布式事务解决方案》视频教程 -->
-<!-- 讲师：吴水成（水到渠成），840765167@qq.com -->
-<!-- 课程地址：http://www.roncoo.com/course/view/7ae3d7eddc4742f78b0548aa8bd9ccdb -->
-<!-- ==================================================================== -->
+</project><!-- ==================================================================== --><!-- 龙果学院（ http://www.roncoo.com ）超级教程系列 --><!-- 《微服务架构的分布式事务解决方案》视频教程 --><!-- 讲师：吴水成（水到渠成），840765167@qq.com --><!-- 课程地址：http://www.roncoo.com/course/view/7ae3d7eddc4742f78b0548aa8bd9ccdb --><!-- ==================================================================== -->
